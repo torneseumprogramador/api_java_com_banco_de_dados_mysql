@@ -32,8 +32,6 @@ public class AdministradoresController {
 
   @PostMapping("/administradores.json")
   public Administrador criar(@RequestBody Administrador administrador){
-    System.out.println(administrador);
-
     repo.save(administrador);
     return administrador;
   }
@@ -56,6 +54,7 @@ public class AdministradoresController {
       return ResponseEntity.status(404).build();
     }
 
+    administrador.setId(id);
     repo.save(administrador);
     return ResponseEntity.ok(administrador);
   }
